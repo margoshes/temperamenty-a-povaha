@@ -6,206 +6,656 @@
 <title>Temperamenty a povaha — PRO</title>
 <style>
   :root{
-    --text:#4f3b28; --muted:#7b654f; --gold:#be9357; --shadow:0 18px 42px rgba(101,73,37,.14);
-    --leader:#c97d63; --social:#d0a652; --calm:#9cb98d; --deep:#8ea1be; --creator:#b892b6; --steady:#88b8bf;
-    --chol:#c56f59; --sang:#d7a64e; --phleg:#7faec0; --mel:#9283ac;
+    --text:#4f3b28;
+    --muted:#7b654f;
+    --gold:#be9357;
+    --shadow:0 18px 42px rgba(101,73,37,.14);
+
+    --leader:#c97d63;
+    --social:#d0a652;
+    --calm:#9cb98d;
+    --deep:#8ea1be;
+    --creator:#b892b6;
+    --steady:#88b8bf;
+
+    --chol:#c56f59;
+    --sang:#d7a64e;
+    --phleg:#7faec0;
+    --mel:#9283ac;
   }
-  *{box-sizing:border-box} html,body{margin:0;padding:0}
-  body{min-height:100vh;font-family:Georgia,"Times New Roman",serif;color:var(--text);background:radial-gradient(circle at 50% 0%, rgba(190,147,87,.12), transparent 24%),linear-gradient(180deg,#f5ede1,#ecdecb 48%,#e7d5bc);overflow-x:hidden}
-  .sparkles{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
-  .sparkle{position:absolute;width:4px;height:4px;border-radius:50%;background:#f4e4bb;box-shadow:0 0 12px rgba(244,228,187,.9);animation:twinkle 4.6s ease-in-out infinite}
-.header {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  box-shadow: 0 20px 52px rgba(0,0,0,.18);
-}
 
-.header-img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
 
-.header-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.18);
-}
+  body{
+    min-height:100vh;
+    font-family:Georgia,"Times New Roman",serif;
+    color:var(--text);
+    background:
+      radial-gradient(circle at 50% 0%, rgba(190,147,87,.12), transparent 24%),
+      linear-gradient(180deg,#f5ede1,#ecdecb 48%,#e7d5bc);
+    overflow-x:hidden;
+  }
 
-.header-content {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 18px;
-  z-index: 2;
-  text-align: center;
-  padding: 0 20px;
-}
+  .sparkles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+  }
 
-.header h1 {
-  margin: 0;
-  color: #f1d6a3;
-  text-shadow:
-    0 2px 8px rgba(0,0,0,0.55),
-    0 0 16px rgba(190,147,87,0.45);
-  animation: glowPulse 3s ease-in-out infinite;
-}
+  .sparkle{
+    position:absolute;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:#f4e4bb;
+    box-shadow:0 0 12px rgba(244,228,187,.9);
+    animation:twinkle 4.6s ease-in-out infinite;
+  }
 
-/* overlay */
-.header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(2px);
-}
+  .header{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    box-shadow:0 20px 52px rgba(0,0,0,.18);
+  }
 
-/* světlo */
-.header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 72% 22%, rgba(255,249,231,.16), transparent 18%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(79,59,40,.12));
-}
+  .header-img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
 
-/* obsah musí být nad overlay */
-.header * {
-  position: relative;
-  z-index: 2;
-}
+  .header::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.18);
+    backdrop-filter:blur(2px);
+    z-index:1;
+  }
 
-/* text */
-h1 {
-  margin: 0;
-  margin-top: 40px; /* doladění pozice */
-}
-  .hero{margin-top:-58px;text-align:center}
-  h1{color: #f1d6a3;text-shadow: 0 3px 10px rgba(0,0,0,0.6), 0 0 20px rgba(190,147,87,0.7); animation: glowPulse 3s ease-in-out infinite; margin:0;color:var(--gold);font-size:clamp(2rem,4vw,3.45rem);  text-shadow: 0 2px 6px rgba(0,0,0,0.25), 0 0 12px rgba(190,147,87,0.4); animation: glowPulse 3s ease-in-out infinite;}
-  .subtitle{margin:14px auto 0;max-width:860px;padding:14px 18px;background:linear-gradient(180deg, rgba(252,247,240,.97), rgba(246,237,224,.98));border:1px solid rgba(190,147,87,.22);border-radius:999px;color:#614d38;box-shadow:0 10px 24px rgba(101,73,37,.08)}
-  .mode-switch-wrap{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px}
-  .mode-label{color:#8d755d;font-weight:700;opacity:.7;transition:.25s ease}
-  .mode-label.active{color:#70543a;opacity:1;text-shadow:0 0 10px rgba(190,147,87,.16)}
-  .mode-toggle{position:relative;width:92px;height:42px;display:inline-block}
+  .header::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at 72% 22%, rgba(255,249,231,.16), transparent 18%),
+      linear-gradient(to bottom, rgba(255,255,255,.02), rgba(79,59,40,.12));
+    z-index:1;
+  }
+
+  .header-content{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:18px;
+    z-index:2;
+    text-align:center;
+    padding:0 20px;
+  }
+
+  .header-title{
+    margin:0;
+    color:#f1d6a3;
+    font-size:clamp(2rem,4vw,3.45rem);
+    text-shadow:
+      0 2px 8px rgba(0,0,0,0.55),
+      0 0 16px rgba(190,147,87,0.45);
+    animation:glowPulse 3s ease-in-out infinite;
+  }
+
+  .wrap{
+    position:relative;
+    z-index:1;
+    max-width:1200px;
+    margin:0 auto;
+    padding:22px 18px 48px;
+  }
+
+  .hero{
+    text-align:center;
+    margin-top:10px;
+  }
+
+  .subtitle{
+    margin:14px auto 0;
+    max-width:860px;
+    padding:14px 18px;
+    background:linear-gradient(180deg, rgba(252,247,240,.97), rgba(246,237,224,.98));
+    border:1px solid rgba(190,147,87,.22);
+    border-radius:999px;
+    color:#614d38;
+    box-shadow:0 10px 24px rgba(101,73,37,.08);
+  }
+
+  .mode-switch-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:22px;
+  }
+
+  .mode-label{
+    color:#8d755d;
+    font-weight:700;
+    opacity:.7;
+    transition:.25s ease;
+  }
+
+  .mode-label.active{
+    color:#70543a;
+    opacity:1;
+    text-shadow:0 0 10px rgba(190,147,87,.16);
+  }
+
+  .mode-toggle{
+    position:relative;
+    width:92px;
+    height:42px;
+    display:inline-block;
+  }
+
   .mode-toggle input{display:none}
-  .mode-slider{position:absolute;inset:0;border-radius:999px;background:linear-gradient(180deg,#efe1cb,#dfccb0);border:1px solid rgba(190,147,87,.34);box-shadow:inset 0 0 8px rgba(255,255,255,.18),0 0 12px rgba(190,147,87,.10);cursor:pointer;transition:.3s ease}
-  .mode-slider:before{content:"";position:absolute;width:30px;height:30px;left:6px;top:5px;border-radius:50%;background:linear-gradient(180deg,#edd6a1,#cea553);box-shadow:0 0 12px rgba(190,147,87,.24);transition:.3s ease}
-  .mode-toggle input:checked + .mode-slider{background:linear-gradient(180deg,#e5ddd1,#d7ccbc);border-color:rgba(136,184,191,.50);box-shadow:inset 0 0 8px rgba(255,255,255,.18),0 0 14px rgba(136,184,191,.16)}
-  .mode-toggle input:checked + .mode-slider:before{transform:translateX(48px);background:linear-gradient(180deg,#d9ebee,#88b8bf);box-shadow:0 0 14px rgba(136,184,191,.28)}
-  .panel{background:linear-gradient(180deg, rgba(252,247,240,.96), rgba(244,234,219,.98));border:2px solid rgba(190,147,87,.24);border-radius:22px;box-shadow:var(--shadow);padding:20px}
-  .intro-panel{margin-top:24px}.intro-panel h2,.section-title{margin:0 0 14px;text-align:center;color:var(--gold)}
-  .intro-panel h2,.section-title{font-size:2rem}
-  .intro-panel p{text-align:center;max-width:980px;margin:0 auto 16px;line-height:1.7;color:#5f4b37}
-  .temper-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .temper-card{background:#f6ecdc;border:1px solid rgba(190,147,87,.20);border-radius:16px;padding:14px}
-  .temper-card b{display:block;font-size:1.05rem;margin-bottom:6px}.temper-card span{color:#5e4936;line-height:1.45}
-  .section-title{margin:26px 0 14px}
-  .mode-panel{display:none}.mode-panel.active{display:block;animation:fadeSoft .28s ease}
-  .traits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .trait-btn{min-height:72px;border:none;border-radius:16px;padding:14px;cursor:pointer;font:700 1rem Georgia,serif;color:#4a3827;background:linear-gradient(180deg,#f2e6d4,#ead9c0);border:1px solid rgba(190,147,87,.20);transition:.18s ease}
+
+  .mode-slider{
+    position:absolute;
+    inset:0;
+    border-radius:999px;
+    background:linear-gradient(180deg,#efe1cb,#dfccb0);
+    border:1px solid rgba(190,147,87,.34);
+    box-shadow:inset 0 0 8px rgba(255,255,255,.18),0 0 12px rgba(190,147,87,.10);
+    cursor:pointer;
+    transition:.3s ease;
+  }
+
+  .mode-slider:before{
+    content:"";
+    position:absolute;
+    width:30px;
+    height:30px;
+    left:6px;
+    top:5px;
+    border-radius:50%;
+    background:linear-gradient(180deg,#edd6a1,#cea553);
+    box-shadow:0 0 12px rgba(190,147,87,.24);
+    transition:.3s ease;
+  }
+
+  .mode-toggle input:checked + .mode-slider{
+    background:linear-gradient(180deg,#e5ddd1,#d7ccbc);
+    border-color:rgba(136,184,191,.50);
+    box-shadow:inset 0 0 8px rgba(255,255,255,.18),0 0 14px rgba(136,184,191,.16);
+  }
+
+  .mode-toggle input:checked + .mode-slider:before{
+    transform:translateX(48px);
+    background:linear-gradient(180deg,#d9ebee,#88b8bf);
+    box-shadow:0 0 14px rgba(136,184,191,.28);
+  }
+
+  .panel{
+    background:linear-gradient(180deg, rgba(252,247,240,.96), rgba(244,234,219,.98));
+    border:2px solid rgba(190,147,87,.24);
+    border-radius:22px;
+    box-shadow:var(--shadow);
+    padding:20px;
+  }
+
+  .intro-panel{
+    margin-top:24px;
+  }
+
+  .intro-panel h2,
+  .section-title{
+    margin:0 0 14px;
+    text-align:center;
+    color:var(--gold);
+    font-size:2rem;
+  }
+
+  .intro-panel p{
+    text-align:center;
+    max-width:980px;
+    margin:0 auto 16px;
+    line-height:1.7;
+    color:#5f4b37;
+  }
+
+  .temper-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+  }
+
+  .temper-card{
+    background:#f6ecdc;
+    border:1px solid rgba(190,147,87,.20);
+    border-radius:16px;
+    padding:14px;
+  }
+
+  .temper-card b{
+    display:block;
+    font-size:1.05rem;
+    margin-bottom:6px;
+  }
+
+  .temper-card span{
+    color:#5e4936;
+    line-height:1.45;
+  }
+
+  .section-title{
+    margin:26px 0 14px;
+  }
+
+  .mode-panel{display:none}
+  .mode-panel.active{
+    display:block;
+    animation:fadeSoft .28s ease;
+  }
+
+  .traits-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+  }
+
+  .trait-btn{
+    min-height:72px;
+    border:none;
+    border-radius:16px;
+    padding:14px;
+    cursor:pointer;
+    font:700 1rem Georgia,serif;
+    color:#4a3827;
+    background:linear-gradient(180deg,#f2e6d4,#ead9c0);
+    border:1px solid rgba(190,147,87,.20);
+    transition:.18s ease;
+  }
+
   .trait-btn:hover{transform:translateY(-2px)}
-  .trait-btn.selected{background:linear-gradient(180deg,#d8c1a1,#c29b66);color:#fff9f1;box-shadow:0 0 16px rgba(190,147,87,.20)}
-  .helper-text{margin-top:14px;text-align:center;color:var(--muted)}
-  .situations-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  .card{background:linear-gradient(180deg, rgba(251,245,237,.96), rgba(243,232,216,.98));border:2px solid rgba(190,147,87,.22);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:.2s ease}
-  .card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(101,73,37,.14)}
-  .card-head{display:grid;grid-template-columns:1.15fr .85fr;min-height:224px;background:linear-gradient(rgba(255,255,255,.22), rgba(244,232,214,.32)),linear-gradient(135deg, rgba(237,224,204,.96), rgba(246,238,226,.96))}
-  .head-text{padding:16px 18px 14px}
-  .eyebrow{display:flex;gap:10px;align-items:center;color:#8b6c46;font-size:.96rem;margin-bottom:8px}
-  .icon-chip{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:rgba(190,147,87,.10);border:1px solid rgba(190,147,87,.24)}
-  .card h3{margin:0 0 8px;color:#8b6c46;font-size:1.35rem;line-height:1.2}.question{color:#5c4733;line-height:1.55;margin-bottom:10px}
-  .situation-options button{display:block;width:100%;text-align:left;margin:7px 0;padding:11px 14px;border-radius:12px;cursor:pointer;background:linear-gradient(180deg,#f4ead8,#ebdcc5);color:#4a3827;border:1px solid rgba(190,147,87,.22);font:600 .98rem Georgia,serif;transition:.18s ease}
+
+  .trait-btn.selected{
+    background:linear-gradient(180deg,#d8c1a1,#c29b66);
+    color:#fff9f1;
+    box-shadow:0 0 16px rgba(190,147,87,.20);
+  }
+
+  .helper-text{
+    margin-top:14px;
+    text-align:center;
+    color:var(--muted);
+  }
+
+  .situations-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+  }
+
+  .card{
+    background:linear-gradient(180deg, rgba(251,245,237,.96), rgba(243,232,216,.98));
+    border:2px solid rgba(190,147,87,.22);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:.2s ease;
+  }
+
+  .card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 48px rgba(101,73,37,.14);
+  }
+
+  .card-head{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    min-height:224px;
+    background:
+      linear-gradient(rgba(255,255,255,.22), rgba(244,232,214,.32)),
+      linear-gradient(135deg, rgba(237,224,204,.96), rgba(246,238,226,.96));
+  }
+
+  .head-text{
+    padding:16px 18px 14px;
+  }
+
+  .eyebrow{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    color:#8b6c46;
+    font-size:.96rem;
+    margin-bottom:8px;
+  }
+
+  .icon-chip{
+    width:28px;
+    height:28px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:rgba(190,147,87,.10);
+    border:1px solid rgba(190,147,87,.24);
+  }
+
+  .card h3{
+    margin:0 0 8px;
+    color:#8b6c46;
+    font-size:1.35rem;
+    line-height:1.2;
+  }
+
+  .question{
+    color:#5c4733;
+    line-height:1.55;
+    margin-bottom:10px;
+  }
+
+  .situation-options button{
+    display:block;
+    width:100%;
+    text-align:left;
+    margin:7px 0;
+    padding:11px 14px;
+    border-radius:12px;
+    cursor:pointer;
+    background:linear-gradient(180deg,#f4ead8,#ebdcc5);
+    color:#4a3827;
+    border:1px solid rgba(190,147,87,.22);
+    font:600 .98rem Georgia,serif;
+    transition:.18s ease;
+  }
+
   .situation-options button:hover{transform:translateY(-1px)}
-  .situation-options button.selected{background:linear-gradient(180deg,#d9c0a0,#c9ac82);color:#2d2208;box-shadow:0 0 18px rgba(190,147,87,.22)}
-  .art{display:grid;place-items:center;padding:10px;border-left:1px solid rgba(190,147,87,.12);background:radial-gradient(circle at 70% 30%, rgba(190,147,87,.10), transparent 26%),linear-gradient(135deg, rgba(239,229,213,.96), rgba(233,219,198,.96))}
-  .art svg{width:100%;max-height:196px}
-  .actions{text-align:center;margin-top:24px}
-  .actions button,.result-actions button{border:none;border-radius:999px;padding:13px 22px;cursor:pointer;font:700 1rem Georgia,serif;color:#2f2418;background:linear-gradient(180deg,#ead8a7,#cdaa57);border:1px solid rgba(190,147,87,.24);box-shadow:0 10px 20px rgba(101,73,37,.10)}
-  .help-box{margin-top:24px;background:rgba(252,247,240,.92);border:1px solid rgba(190,147,87,.20);border-radius:16px;box-shadow:var(--shadow);padding:18px 20px}
-  .help-box h3{margin:0 0 10px;color:var(--gold)}
-  .help-box p,.help-box li{color:var(--muted);line-height:1.7}
-  .result-overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;z-index:9999;background:rgba(84,63,41,.28);backdrop-filter:blur(6px)}
-  .result-overlay.show{display:flex;animation:fadeIn .35s ease}
-  .result-box{width:min(940px,96vw);background:linear-gradient(180deg, rgba(252,247,239,.98), rgba(244,234,219,.98));border:2px solid rgba(190,147,87,.30);border-radius:22px;box-shadow:0 0 30px rgba(190,147,87,.12),0 24px 50px rgba(98,70,40,.14);padding:28px 24px;text-align:center}
-  .result-box h2{margin:0 0 18px;color:var(--gold);font-size:2rem}
-  .wheel-wrap{display:flex;justify-content:center;margin:10px 0 22px}
-  .magic-wheel{width:270px;height:270px;border-radius:50%;position:relative;box-shadow:0 0 26px rgba(190,147,87,.10),0 0 36px rgba(190,147,87,.08)}
-  .magic-wheel:after{content:"";position:absolute;inset:20px;border-radius:50%;background:rgba(252,247,239,.96);box-shadow:inset 0 0 18px rgba(190,147,87,.06)}
-  .magic-wheel-center{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 34px;text-align:center;font-weight:700}
-  .main-role{color:#7a6147;font-size:1.12rem;line-height:1.25}.wheel-sub{color:#8a755f;margin-top:6px;font-size:.9rem}
-  .stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left}
-  .stat{background:rgba(255,248,238,.88);border:1px solid rgba(190,147,87,.18);border-radius:16px;padding:14px}
-  .stat-label{display:flex;justify-content:space-between;margin-bottom:8px;color:#7a6147;font-weight:700}
-  .bar{height:12px;border-radius:999px;background:rgba(190,147,87,.10);overflow:hidden}
-  .bar-fill{height:100%;width:0%;border-radius:999px;transition:width 1s ease;box-shadow:0 0 14px currentColor}
-  .result-comment{margin-top:20px;line-height:1.7;color:#5a4632;font-size:1.05rem}
-  .compare-box{margin-top:18px;padding:14px 16px;border-radius:16px;background:rgba(255,248,238,.88);border:1px solid rgba(190,147,87,.18);color:#6b5540}
-  .result-actions{margin-top:22px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-  @keyframes twinkle{0%,100%{opacity:.12;transform:scale(.7)}50%{opacity:1;transform:scale(1.45)}}
-  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-  @keyframes fadeSoft{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-  @keyframes glowPulse {
-  0% {
-    text-shadow:
-      0 2px 8px rgba(0,0,0,0.55),
-      0 0 10px rgba(190,147,87,0.25);
+
+  .situation-options button.selected{
+    background:linear-gradient(180deg,#d9c0a0,#c9ac82);
+    color:#2d2208;
+    box-shadow:0 0 18px rgba(190,147,87,.22);
   }
-  50% {
-    text-shadow:
-      0 2px 12px rgba(0,0,0,0.65),
-      0 0 22px rgba(190,147,87,0.65);
+
+  .art{
+    display:grid;
+    place-items:center;
+    padding:10px;
+    border-left:1px solid rgba(190,147,87,.12);
+    background:
+      radial-gradient(circle at 70% 30%, rgba(190,147,87,.10), transparent 26%),
+      linear-gradient(135deg, rgba(239,229,213,.96), rgba(233,219,198,.96));
   }
-  100% {
-    text-shadow:
-      0 2px 8px rgba(0,0,0,0.55),
-      0 0 10px rgba(190,147,87,0.25);
+
+  .art svg{
+    width:100%;
+    max-height:196px;
   }
-}
-  @media (max-width:980px){.traits-grid{grid-template-columns:repeat(3,1fr)}.situations-grid{grid-template-columns:1fr}.temper-grid{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:700px){.traits-grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:1fr}.magic-wheel{width:220px;height:220px}}
-  @media (max-width:560px){.traits-grid,.temper-grid{grid-template-columns:1fr}.card-head{grid-template-columns:1fr}.art{border-left:none;border-top:1px solid rgba(190,147,87,.12);min-height:170px}}
-@keyframes glowPulse {
-  0% {
-    text-shadow:
-      0 2px 6px rgba(0,0,0,0.25),
-      0 0 10px rgba(190,147,87,0.3);
+
+  .actions{
+    text-align:center;
+    margin-top:24px;
   }
-  50% {
-    text-shadow:
-      0 2px 10px rgba(0,0,0,0.35),
-      0 0 22px rgba(190,147,87,0.7);
+
+  .actions button,
+  .result-actions button{
+    border:none;
+    border-radius:999px;
+    padding:13px 22px;
+    cursor:pointer;
+    font:700 1rem Georgia,serif;
+    color:#2f2418;
+    background:linear-gradient(180deg,#ead8a7,#cdaa57);
+    border:1px solid rgba(190,147,87,.24);
+    box-shadow:0 10px 20px rgba(101,73,37,.10);
   }
-  100% {
-    text-shadow:
-      0 2px 6px rgba(0,0,0,0.25),
-      0 0 10px rgba(190,147,87,0.3);
+
+  .help-box{
+    margin-top:24px;
+    background:rgba(252,247,240,.92);
+    border:1px solid rgba(190,147,87,.20);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    padding:18px 20px;
   }
-}
+
+  .help-box h3{
+    margin:0 0 10px;
+    color:var(--gold);
+  }
+
+  .help-box p,
+  .help-box li{
+    color:var(--muted);
+    line-height:1.7;
+  }
+
+  .result-overlay{
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:9999;
+    background:rgba(84,63,41,.28);
+    backdrop-filter:blur(6px);
+  }
+
+  .result-overlay.show{
+    display:flex;
+    animation:fadeIn .35s ease;
+  }
+
+  .result-box{
+    width:min(940px,96vw);
+    background:linear-gradient(180deg, rgba(252,247,239,.98), rgba(244,234,219,.98));
+    border:2px solid rgba(190,147,87,.30);
+    border-radius:22px;
+    box-shadow:0 0 30px rgba(190,147,87,.12),0 24px 50px rgba(98,70,40,.14);
+    padding:28px 24px;
+    text-align:center;
+  }
+
+  .result-box h2{
+    margin:0 0 18px;
+    color:var(--gold);
+    font-size:2rem;
+  }
+
+  .wheel-wrap{
+    display:flex;
+    justify-content:center;
+    margin:10px 0 22px;
+  }
+
+  .magic-wheel{
+    width:270px;
+    height:270px;
+    border-radius:50%;
+    position:relative;
+    box-shadow:0 0 26px rgba(190,147,87,.10),0 0 36px rgba(190,147,87,.08);
+  }
+
+  .magic-wheel:after{
+    content:"";
+    position:absolute;
+    inset:20px;
+    border-radius:50%;
+    background:rgba(252,247,239,.96);
+    box-shadow:inset 0 0 18px rgba(190,147,87,.06);
+  }
+
+  .magic-wheel-center{
+    position:absolute;
+    inset:0;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:0 34px;
+    text-align:center;
+    font-weight:700;
+  }
+
+  .main-role{
+    color:#7a6147;
+    font-size:1.12rem;
+    line-height:1.25;
+  }
+
+  .wheel-sub{
+    color:#8a755f;
+    margin-top:6px;
+    font-size:.9rem;
+  }
+
+  .stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    text-align:left;
+  }
+
+  .stat{
+    background:rgba(255,248,238,.88);
+    border:1px solid rgba(190,147,87,.18);
+    border-radius:16px;
+    padding:14px;
+  }
+
+  .stat-label{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+    color:#7a6147;
+    font-weight:700;
+  }
+
+  .bar{
+    height:12px;
+    border-radius:999px;
+    background:rgba(190,147,87,.10);
+    overflow:hidden;
+  }
+
+  .bar-fill{
+    height:100%;
+    width:0%;
+    border-radius:999px;
+    transition:width 1s ease;
+    box-shadow:0 0 14px currentColor;
+  }
+
+  .result-comment{
+    margin-top:20px;
+    line-height:1.7;
+    color:#5a4632;
+    font-size:1.05rem;
+  }
+
+  .compare-box{
+    margin-top:18px;
+    padding:14px 16px;
+    border-radius:16px;
+    background:rgba(255,248,238,.88);
+    border:1px solid rgba(190,147,87,.18);
+    color:#6b5540;
+  }
+
+  .result-actions{
+    margin-top:22px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  @keyframes twinkle{
+    0%,100%{opacity:.12;transform:scale(.7)}
+    50%{opacity:1;transform:scale(1.45)}
+  }
+
+  @keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
+  }
+
+  @keyframes fadeSoft{
+    from{opacity:0;transform:translateY(6px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+
+  @keyframes glowPulse{
+    0%{
+      text-shadow:
+        0 2px 8px rgba(0,0,0,0.55),
+        0 0 10px rgba(190,147,87,0.25);
+    }
+    50%{
+      text-shadow:
+        0 2px 12px rgba(0,0,0,0.65),
+        0 0 22px rgba(190,147,87,0.65);
+    }
+    100%{
+      text-shadow:
+        0 2px 8px rgba(0,0,0,0.55),
+        0 0 10px rgba(190,147,87,0.25);
+    }
+  }
+
+  @media (max-width:980px){
+    .traits-grid{grid-template-columns:repeat(3,1fr)}
+    .situations-grid{grid-template-columns:1fr}
+    .temper-grid{grid-template-columns:repeat(2,1fr)}
+  }
+
+  @media (max-width:700px){
+    .traits-grid{grid-template-columns:repeat(2,1fr)}
+    .stats{grid-template-columns:1fr}
+    .magic-wheel{width:220px;height:220px}
+  }
+
+  @media (max-width:560px){
+    .traits-grid,.temper-grid{grid-template-columns:1fr}
+    .card-head{grid-template-columns:1fr}
+    .art{
+      border-left:none;
+      border-top:1px solid rgba(190,147,87,.12);
+      min-height:170px;
+    }
+  }
 </style>
 </head>
 <body>
+
 <header class="header">
   <img src="header.png" alt="Temperamenty" class="header-img">
-  <div class="header-overlay"></div>
   <div class="header-content">
-    <h1>🧠 Hra na temperamenty a povahu</h1>
+    <h1 class="header-title">🧠 Hra na temperamenty a povahu</h1>
   </div>
 </header>
+
 <div class="sparkles" id="sparkles"></div>
 
 <div class="wrap">
   <section class="hero">
-    <h1>🧠 Hra na temperamenty a povahu</h1>
     <div class="subtitle">Dva režimy, dva pohledy na osobnost: rysy povahy a reakce v situacích.</div>
     <div class="mode-switch-wrap">
       <span class="mode-label active" id="labelTraits">🎭 Rysy povahy</span>
-      <label class="mode-toggle"><input type="checkbox" id="modeToggle"><span class="mode-slider"></span></label>
+      <label class="mode-toggle">
+        <input type="checkbox" id="modeToggle">
+        <span class="mode-slider"></span>
+      </label>
       <span class="mode-label" id="labelSituations">🔮 Situace</span>
     </div>
   </section>
-  
+
   <section class="panel intro-panel">
     <h2>Krátký přehled temperamentů</h2>
     <p>Temperament ukazuje, jak člověk obvykle reaguje, prožívá a jedná. Nejde o nálepku, ale o určitý sklon, který se může v různých situacích projevovat silněji nebo slaběji.</p>
@@ -222,12 +672,16 @@ h1 {
   <section class="panel mode-panel active" id="traitsPanel">
     <div class="traits-grid" id="traitsGrid"></div>
     <div class="helper-text">Vyber alespoň 5 rysů. Čím přesnější výběr, tím přesnější profil.</div>
-    <div class="actions"><button onclick="showTraitsResult()">✨ Ukázat profil</button></div>
+    <div class="actions">
+      <button onclick="showTraitsResult()">✨ Ukázat profil</button>
+    </div>
   </section>
 
   <section class="panel mode-panel" id="situationsPanel">
     <div class="situations-grid" id="situationsGrid"></div>
-    <div class="actions"><button onclick="showSituationsResult()">🔮 Odhalit temperament</button></div>
+    <div class="actions">
+      <button onclick="showSituationsResult()">🔮 Odhalit temperament</button>
+    </div>
   </section>
 
   <section class="help-box">
@@ -264,138 +718,432 @@ h1 {
 </div>
 
 <script>
-const traitsData=[{text:"Přátelský",score:{social:2}},{text:"Laskavý",score:{calm:2}},{text:"Sebevědomý",score:{leader:2}},{text:"Skromný",score:{calm:1,deep:1}},{text:"Zodpovědný",score:{steady:2}},{text:"Optimistický",score:{social:2}},{text:"Pesimistický",score:{deep:2}},{text:"Upřímný",score:{calm:1,steady:1}},{text:"Ambiciózní",score:{leader:2}},{text:"Trpělivý",score:{calm:2}},{text:"Roztržitý",score:{social:1}},{text:"Hodný",score:{calm:2}},{text:"Tichý",score:{deep:2}},{text:"Nervózní",score:{deep:2}},{text:"Ctižádostivý",score:{leader:2}},{text:"Kreativní",score:{creator:3}},{text:"Pohodový",score:{social:1,calm:1}},{text:"Vytrvalý",score:{steady:3}},{text:"Veselý",score:{social:2}},{text:"Odhodlaný",score:{leader:1,steady:1}}];
-const situationsData=[{icon:"⏰",title:"Nestíháš důležitý termín",question:"Co uděláš?",art:"hourglass",options:[{text:"okamžitě začnu jednat",score:{chol:2}},{text:"zkusím to brát s humorem",score:{sang:2}},{text:"zachovám klid a rozvrhnu si práci",score:{phleg:2}},{text:"začnu se stresovat a přemýšlet nad důsledky",score:{mel:2}}]},{icon:"👥",title:"Ve skupině nikdo nic nedělá",question:"Jak reaguješ?",art:"group",options:[{text:"převezmu vedení",score:{chol:2}},{text:"motivuju ostatní",score:{sang:2}},{text:"počkám, jak se to vyvine",score:{phleg:2}},{text:"mám obavy, že to dopadne špatně",score:{mel:2}}]},{icon:"🗣️",title:"Někdo tě kritizuje",question:"Jak reaguješ?",art:"speech",options:[{text:"hned se bráním",score:{chol:2}},{text:"beru to s nadhledem",score:{sang:2}},{text:"moc to neřeším",score:{phleg:2}},{text:"vezmu si to osobně",score:{mel:2}}]},{icon:"🚀",title:"Dostaneš nový projekt",question:"Jak začneš?",art:"rocket",options:[{text:"jdu rovnou do akce",score:{chol:2}},{text:"sdílím své nadšení s ostatními",score:{sang:2}},{text:"postupuju klidně krok za krokem",score:{phleg:2}},{text:"nejdřív promyslím každý detail",score:{mel:2}}]},{icon:"⚡",title:"Ve skupině vznikne konflikt",question:"Co uděláš?",art:"conflict",options:[{text:"řeším ho přímo",score:{chol:2}},{text:"zkusím odlehčit atmosféru",score:{sang:2}},{text:"snažím se všechny uklidnit",score:{phleg:2}},{text:"radši se stáhnu",score:{mel:2}}]},{icon:"🎉",title:"Jsi na nové společenské akci",question:"Jak se chováš?",art:"party",options:[{text:"rychle převezmu iniciativu",score:{chol:2}},{text:"seznamuju se a bavím se",score:{sang:2}},{text:"pozoruju a jsem v pohodě",score:{phleg:2}},{text:"jsem spíš nesvůj/nesvá",score:{mel:2}}]},{icon:"📚",title:"Čeká tě náročná zkouška",question:"Jak reaguješ?",art:"exam",options:[{text:"rychle se pustím do přípravy",score:{chol:2}},{text:"věřím, že to nějak dopadne",score:{sang:2}},{text:"učím se systematicky a klidně",score:{phleg:2}},{text:"mám velké obavy",score:{mel:2}}]},{icon:"💡",title:"Napadne tě nový nápad",question:"Co uděláš?",art:"idea",options:[{text:"hned ho chci realizovat",score:{chol:2}},{text:"nadšeně o něm mluvím",score:{sang:2}},{text:"nechám ho uzrát",score:{phleg:2}},{text:"rozebírám, co by se mohlo pokazit",score:{mel:2}}]},{icon:"🧍",title:"Někdo tě ignoruje",question:"Jak to bereš?",art:"ignore",options:[{text:"konfrontuju ho",score:{chol:2}},{text:"rychle to hodím za hlavu",score:{sang:2}},{text:"beru to v klidu",score:{phleg:2}},{text:"přemýšlím, co jsem udělal/a špatně",score:{mel:2}}]},{icon:"🌧️",title:"Plány se nečekaně pokazí",question:"Co uděláš?",art:"storm",options:[{text:"rychle hledám nové řešení",score:{chol:2}},{text:"řeknu, že to bude ještě sranda",score:{sang:2}},{text:"smířím se s tím a jdu dál",score:{phleg:2}},{text:"mrzí mě to dlouho",score:{mel:2}}]},{icon:"🏆",title:"Někdo tě porazí",question:"Jak reaguješ?",art:"trophy",options:[{text:"chci se zlepšit a vyhrát příště",score:{chol:2}},{text:"beru to sportovně",score:{sang:2}},{text:"neztrácím klid",score:{phleg:2}},{text:"hodně mě to zasáhne",score:{mel:2}}]},{icon:"🕯️",title:"Jsi delší dobu sám/sama",question:"Jak to na tebe působí?",art:"alone",options:[{text:"začnu aktivně něco dělat",score:{chol:2}},{text:"hledám kontakt s lidmi",score:{sang:2}},{text:"užívám si klid",score:{phleg:2}},{text:"ponořím se do myšlenek",score:{mel:2}}]}];
-const traitProfiles={leader:{name:"Vůdce",color:"var(--leader)"},social:{name:"Společník",color:"var(--social)"},calm:{name:"Klidná síla",color:"var(--calm)"},deep:{name:"Hloubavý typ",color:"var(--deep)"},creator:{name:"Tvůrce",color:"var(--creator)"},steady:{name:"Vytrvalec",color:"var(--steady)"}};
-const tempProfiles={chol:{name:"Cholerik",color:"var(--chol)"},sang:{name:"Sangvinik",color:"var(--sang)"},phleg:{name:"Flegmatik",color:"var(--phleg)"},mel:{name:"Melancholik",color:"var(--mel)"}};
+  const traitsData = [
+    { text:"Přátelský", score:{social:2} },
+    { text:"Laskavý", score:{calm:2} },
+    { text:"Sebevědomý", score:{leader:2} },
+    { text:"Skromný", score:{calm:1,deep:1} },
+    { text:"Zodpovědný", score:{steady:2} },
+    { text:"Optimistický", score:{social:2} },
+    { text:"Pesimistický", score:{deep:2} },
+    { text:"Upřímný", score:{calm:1,steady:1} },
+    { text:"Ambiciózní", score:{leader:2} },
+    { text:"Trpělivý", score:{calm:2} },
+    { text:"Roztržitý", score:{social:1} },
+    { text:"Hodný", score:{calm:2} },
+    { text:"Tichý", score:{deep:2} },
+    { text:"Nervózní", score:{deep:2} },
+    { text:"Ctižádostivý", score:{leader:2} },
+    { text:"Kreativní", score:{creator:3} },
+    { text:"Pohodový", score:{social:1,calm:1} },
+    { text:"Vytrvalý", score:{steady:3} },
+    { text:"Veselý", score:{social:2} },
+    { text:"Odhodlaný", score:{leader:1,steady:1} }
+  ];
 
-let mode="traits";
-const selectedTraits=new Set();
-const selectedSituationAnswers={};
+  const situationsData = [
+    { icon:"⏰", title:"Nestíháš důležitý termín", question:"Co uděláš?", art:"hourglass", options:[
+      { text:"okamžitě začnu jednat", score:{chol:2} },
+      { text:"zkusím to brát s humorem", score:{sang:2} },
+      { text:"zachovám klid a rozvrhnu si práci", score:{phleg:2} },
+      { text:"začnu se stresovat a přemýšlet nad důsledky", score:{mel:2} }
+    ]},
+    { icon:"👥", title:"Ve skupině nikdo nic nedělá", question:"Jak reaguješ?", art:"group", options:[
+      { text:"převezmu vedení", score:{chol:2} },
+      { text:"motivuju ostatní", score:{sang:2} },
+      { text:"počkám, jak se to vyvine", score:{phleg:2} },
+      { text:"mám obavy, že to dopadne špatně", score:{mel:2} }
+    ]},
+    { icon:"🗣️", title:"Někdo tě kritizuje", question:"Jak reaguješ?", art:"speech", options:[
+      { text:"hned se bráním", score:{chol:2} },
+      { text:"beru to s nadhledem", score:{sang:2} },
+      { text:"moc to neřeším", score:{phleg:2} },
+      { text:"vezmu si to osobně", score:{mel:2} }
+    ]},
+    { icon:"🚀", title:"Dostaneš nový projekt", question:"Jak začneš?", art:"rocket", options:[
+      { text:"jdu rovnou do akce", score:{chol:2} },
+      { text:"sdílím své nadšení s ostatními", score:{sang:2} },
+      { text:"postupuju klidně krok za krokem", score:{phleg:2} },
+      { text:"nejdřív promyslím každý detail", score:{mel:2} }
+    ]},
+    { icon:"⚡", title:"Ve skupině vznikne konflikt", question:"Co uděláš?", art:"conflict", options:[
+      { text:"řeším ho přímo", score:{chol:2} },
+      { text:"zkusím odlehčit atmosféru", score:{sang:2} },
+      { text:"snažím se všechny uklidnit", score:{phleg:2} },
+      { text:"radši se stáhnu", score:{mel:2} }
+    ]},
+    { icon:"🎉", title:"Jsi na nové společenské akci", question:"Jak se chováš?", art:"party", options:[
+      { text:"rychle převezmu iniciativu", score:{chol:2} },
+      { text:"seznamuju se a bavím se", score:{sang:2} },
+      { text:"pozoruju a jsem v pohodě", score:{phleg:2} },
+      { text:"jsem spíš nesvůj/nesvá", score:{mel:2} }
+    ]},
+    { icon:"📚", title:"Čeká tě náročná zkouška", question:"Jak reaguješ?", art:"exam", options:[
+      { text:"rychle se pustím do přípravy", score:{chol:2} },
+      { text:"věřím, že to nějak dopadne", score:{sang:2} },
+      { text:"učím se systematicky a klidně", score:{phleg:2} },
+      { text:"mám velké obavy", score:{mel:2} }
+    ]},
+    { icon:"💡", title:"Napadne tě nový nápad", question:"Co uděláš?", art:"idea", options:[
+      { text:"hned ho chci realizovat", score:{chol:2} },
+      { text:"nadšeně o něm mluvím", score:{sang:2} },
+      { text:"nechám ho uzrát", score:{phleg:2} },
+      { text:"rozebírám, co by se mohlo pokazit", score:{mel:2} }
+    ]},
+    { icon:"🧍", title:"Někdo tě ignoruje", question:"Jak to bereš?", art:"ignore", options:[
+      { text:"konfrontuju ho", score:{chol:2} },
+      { text:"rychle to hodím za hlavu", score:{sang:2} },
+      { text:"beru to v klidu", score:{phleg:2} },
+      { text:"přemýšlím, co jsem udělal/a špatně", score:{mel:2} }
+    ]},
+    { icon:"🌧️", title:"Plány se nečekaně pokazí", question:"Co uděláš?", art:"storm", options:[
+      { text:"rychle hledám nové řešení", score:{chol:2} },
+      { text:"řeknu, že to bude ještě sranda", score:{sang:2} },
+      { text:"smířím se s tím a jdu dál", score:{phleg:2} },
+      { text:"mrzí mě to dlouho", score:{mel:2} }
+    ]},
+    { icon:"🏆", title:"Někdo tě porazí", question:"Jak reaguješ?", art:"trophy", options:[
+      { text:"chci se zlepšit a vyhrát příště", score:{chol:2} },
+      { text:"beru to sportovně", score:{sang:2} },
+      { text:"neztrácím klid", score:{phleg:2} },
+      { text:"hodně mě to zasáhne", score:{mel:2} }
+    ]},
+    { icon:"🕯️", title:"Jsi delší dobu sám/sama", question:"Jak to na tebe působí?", art:"alone", options:[
+      { text:"začnu aktivně něco dělat", score:{chol:2} },
+      { text:"hledám kontakt s lidmi", score:{sang:2} },
+      { text:"užívám si klid", score:{phleg:2} },
+      { text:"ponořím se do myšlenek", score:{mel:2} }
+    ]}
+  ];
 
-for(let i=0;i<55;i++){const s=document.createElement("div");s.className="sparkle";s.style.left=Math.random()*100+"vw";s.style.top=Math.random()*100+"vh";s.style.animationDelay=(Math.random()*4.5)+"s";s.style.opacity=.1+Math.random()*.9;document.getElementById("sparkles").appendChild(s);}
-
-function createSvg(kind){
-  const svg={
-    hourglass:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#d8c7ad"/><path d="M90 36 h80 M90 124 h80" stroke="#b8925f" stroke-width="6"/><path d="M102 40 q0 28 28 40 q-28 12-28 40 M158 40 q0 28-28 40 q28 12 28 40" stroke="#fff8ef" stroke-width="4" fill="none"/><path d="M130 78 l14 18 h-28z" fill="#d9b261"/></svg>',
-    group:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#dfd2bc"/><circle cx="85" cy="56" r="16" fill="#fff8ef"/><circle cx="130" cy="48" r="18" fill="#fff8ef"/><circle cx="175" cy="56" r="16" fill="#fff8ef"/><path d="M68 102 q17 -16 34 0 M111 102 q19 -18 38 0 M158 102 q17 -16 34 0" stroke="#b8925f" stroke-width="6" fill="none"/></svg>',
-    speech:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#e4d8c5"/><rect x="40" y="40" width="84" height="52" rx="12" fill="#fff8ef"/><rect x="136" y="52" width="84" height="52" rx="12" fill="#d9c0a0"/><path d="M78 92 l-8 14 l18 -10" fill="#fff8ef"/><path d="M182 104 l10 12 l-2 -14" fill="#d9c0a0"/></svg>',
-    rocket:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#eadfce"/><path d="M140 42 q30 16 32 54 q-38 8-70-24 q6-24 38-30z" fill="#c7a6b8"/><circle cx="150" cy="68" r="8" fill="#fff8ef"/><path d="M107 96 l-18 26 l30-10 M160 107 l22 18 l-8-28" fill="#d9b261"/></svg>',
-    conflict:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#ead9cf"/><circle cx="86" cy="62" r="18" fill="#fff8ef"/><circle cx="174" cy="62" r="18" fill="#fff8ef"/><path d="M104 82 l34-18 M156 82 l-34-18" stroke="#c97b63" stroke-width="6"/><path d="M124 96 l12 20 l10-18" stroke="#d9b261" stroke-width="5" fill="none"/></svg>',
-    party:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#efe4d2"/><circle cx="72" cy="48" r="8" fill="#c97b63"/><circle cx="118" cy="36" r="8" fill="#d9b261"/><circle cx="162" cy="50" r="8" fill="#b9c7a0"/><circle cx="198" cy="38" r="8" fill="#a8b3c9"/><path d="M70 116 q24 -42 48 0 q20 -46 48 0 q26 -36 50 0" stroke="#fff8ef" stroke-width="8" fill="none"/></svg>',
-    exam:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#e8ddcb"/><rect x="60" y="34" width="132" height="92" rx="10" fill="#fff8ef"/><path d="M84 60 H168 M84 76 H164 M84 92 H150" stroke="#9b866d" stroke-width="3"/><path d="M176 42 l18 18" stroke="#b8925f" stroke-width="6"/></svg>',
-    idea:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#efe4d7"/><circle cx="130" cy="64" r="30" fill="#d9b261"/><path d="M118 96 h24 v18 h-24z" fill="#fff8ef"/><path d="M92 34 l-12-12 M168 34 l12-12 M76 68 H58 M202 68 H184" stroke="#d9b261" stroke-width="4"/></svg>',
-    ignore:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#eadfcf"/><circle cx="84" cy="62" r="18" fill="#fff8ef"/><circle cx="176" cy="62" r="18" fill="#fff8ef" opacity=".45"/><path d="M66 106 q18 -14 36 0" stroke="#b8925f" stroke-width="6" fill="none"/><path d="M158 106 q18 -14 36 0" stroke="#b0a28f" stroke-width="6" fill="none"/></svg>',
-    storm:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#e8dece"/><path d="M74 76 q8-24 32-24 q10-18 34-14 q20 2 28 22 q24 0 24 24 q0 24-26 24 H92 q-26 0-26-26 q0-10 8-16z" fill="#a8b3c9"/><path d="M136 84 l-18 26 h14 l-8 22 l24-30 h-12 l10-18z" fill="#d9b261"/></svg>',
-    trophy:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#e8dcc9"/><path d="M98 40 h64 v22 q0 22-32 30 q-32-8-32-30z" fill="#d9b261"/><path d="M98 46 h-18 q0 24 22 28 M162 46 h18 q0 24-22 28" stroke="#fff8ef" stroke-width="5" fill="none"/><rect x="120" y="92" width="20" height="20" fill="#fff8ef"/><rect x="104" y="112" width="52" height="10" rx="4" fill="#b8925f"/></svg>',
-    alone:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#eadfcf"/><circle cx="130" cy="70" r="18" fill="#fff8ef"/><path d="M110 118 q20 -26 40 0" stroke="#b8925f" stroke-width="8" fill="none"/><circle cx="200" cy="34" r="12" fill="#a8b3c9"/></svg>'
+  const traitProfiles = {
+    leader:{name:"Vůdce",color:"var(--leader)"},
+    social:{name:"Společník",color:"var(--social)"},
+    calm:{name:"Klidná síla",color:"var(--calm)"},
+    deep:{name:"Hloubavý typ",color:"var(--deep)"},
+    creator:{name:"Tvůrce",color:"var(--creator)"},
+    steady:{name:"Vytrvalec",color:"var(--steady)"}
   };
-  return svg[kind] || svg.idea;
-}
 
-const traitsGrid=document.getElementById("traitsGrid");
-traitsData.forEach((item,index)=>{const btn=document.createElement("button");btn.className="trait-btn";btn.textContent=item.text;btn.onclick=()=>{if(selectedTraits.has(index)){selectedTraits.delete(index);btn.classList.remove("selected")}else{selectedTraits.add(index);btn.classList.add("selected")}};traitsGrid.appendChild(btn);});
+  const tempProfiles = {
+    chol:{name:"Cholerik",color:"var(--chol)"},
+    sang:{name:"Sangvinik",color:"var(--sang)"},
+    phleg:{name:"Flegmatik",color:"var(--phleg)"},
+    mel:{name:"Melancholik",color:"var(--mel)"}
+  };
 
-const situationsGrid=document.getElementById("situationsGrid");
-situationsData.forEach((item,cardIndex)=>{const card=document.createElement("article");card.className="card";const optionsHtml=item.options.map((opt,i)=>`<button onclick="selectSituationAnswer(this, ${cardIndex}, ${i})">${opt.text}</button>`).join("");card.innerHTML=`<div class="card-head"><div class="head-text"><div class="eyebrow"><span class="icon-chip">${item.icon}</span><span>Situace ${cardIndex+1}</span></div><h3>${item.title}</h3><div class="question">👉 ${item.question}</div><div class="situation-options">${optionsHtml}</div></div><div class="art">${createSvg(item.art)}</div></div>`;situationsGrid.appendChild(card);});
+  let mode = "traits";
+  const selectedTraits = new Set();
+  const selectedSituationAnswers = {};
 
-function selectSituationAnswer(btn,cardIndex,optionIndex){selectedSituationAnswers[cardIndex]=optionIndex;btn.closest(".situation-options").querySelectorAll("button").forEach(b=>b.classList.remove("selected"));btn.classList.add("selected");}
-
-function calcTraitsScores(){const scores={leader:0,social:0,calm:0,deep:0,creator:0,steady:0};selectedTraits.forEach(i=>{Object.entries(traitsData[i].score).forEach(([k,v])=>scores[k]+=v)});return scores;}
-function calcSituationScores(){const scores={chol:0,sang:0,phleg:0,mel:0};Object.entries(selectedSituationAnswers).forEach(([cardIndex,optIndex])=>{Object.entries(situationsData[cardIndex].options[optIndex].score).forEach(([k,v])=>scores[k]+=v)});return scores;}
-
-function buildConicGradient(percentScores,order){let current=0;const parts=[];order.forEach(([key,color],idx)=>{const deg=Math.round((percentScores[key]/100)*360);const end=idx===order.length-1?360:current+deg;parts.push(`${color} ${current}deg ${end}deg`);current=end;});return `conic-gradient(${parts.join(", ")})`;}
-function renderStats(items){const statsBox=document.getElementById("statsBox");statsBox.innerHTML=items.map(([label,pct,color],i)=>`<div class="stat"><div class="stat-label"><span>${label}</span><span>${pct} %</span></div><div class="bar"><div class="bar-fill" id="bar${i}" style="background:${color};color:${color};"></div></div></div>`).join("");setTimeout(()=>{items.forEach(([,pct],i)=>{const bar=document.getElementById(`bar${i}`);if(bar)bar.style.width=pct+"%";});},70);}
-
-function openResult(){document.getElementById("resultOverlay").classList.add("show");}
-function closeResult(){document.getElementById("resultOverlay").classList.remove("show");}
-
-function showTraitsResult(){
-  if(selectedTraits.size<5){alert("Vyber alespoň 5 rysů.");return;}
-  const scores=calcTraitsScores();
-  const sorted=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
-  const main=sorted[0][0], second=sorted[1][0];
-  const total=Object.values(scores).reduce((a,b)=>a+b,0)||1;
-  const p={}; Object.keys(scores).forEach(k=>p[k]=Math.round((scores[k]/total)*100));
-  const mainTexts={leader:"Působíš jako člověk, který chce věci posouvat dopředu. Umíš se rozhodnout, převzít iniciativu a nést odpovědnost.",social:"Tvoje síla je v kontaktu s lidmi, energii a otevřenosti. Umíš vytvářet příjemnou atmosféru a povzbuzovat ostatní.",calm:"Působíš vyrovnaně, trpělivě a laskavě. Nehledáš zbytečné drama, ale spíš stabilitu a dobré vztahy.",deep:"Máš silné vnitřní prožívání a vnímáš věci do hloubky. Často si všimneš detailů, které ostatním uniknou.",creator:"Silnou stránkou tvé osobnosti je nápaditost, originalita a chuť objevovat nové možnosti.",steady:"Tvoje síla je ve spolehlivosti, zodpovědnosti a schopnosti vydržet."};
-  const combos={"leader-social":"Máš energii člověka, který umí nejen vést, ale i strhnout ostatní.","leader-steady":"Tvoje síla je v kombinaci rozhodnosti a vytrvalosti.","social-creator":"Působíš živě, otevřeně a zároveň velmi nápaditě.","social-calm":"Tvoje otevřenost je vyvážená klidem a laskavostí.","calm-deep":"Máš v sobě klid, citlivost a schopnost vnímat jemné nuance.","deep-creator":"Tvoje citlivost a představivost jdou ruku v ruce.","creator-steady":"Nápady ti nechybí, ale zároveň máš i schopnost je rozvíjet.","steady-calm":"Působíš stabilně, klidně a spolehlivě."};
-  const mix=combos[`${main}-${second}`]||combos[`${second}-${main}`]||"Tvůj profil je vyvážený a ukazuje kombinaci více silných stránek.";
-  document.getElementById("resultTitle").textContent="✨ Tvůj profil osobnosti ✨";
-  document.getElementById("mainRoleText").textContent=traitProfiles[main].name;
-  document.getElementById("mainRoleSub").textContent="výsledek z rysů povahy";
-  document.getElementById("resultComment").textContent=mainTexts[main]+" "+mix;
-  document.getElementById("compareBox").style.display="none";
-  document.getElementById("magicWheel").style.background=buildConicGradient(p,[["leader",traitProfiles.leader.color],["social",traitProfiles.social.color],["calm",traitProfiles.calm.color],["deep",traitProfiles.deep.color],["creator",traitProfiles.creator.color],["steady",traitProfiles.steady.color]]);
-  renderStats([["Vůdcovství",p.leader,"#c97d63"],["Společenskost",p.social,"#d0a652"],["Klid",p.calm,"#9cb98d"],["Citlivost",p.deep,"#8ea1be"],["Kreativita",p.creator,"#b892b6"],["Vytrvalost",p.steady,"#88b8bf"]]);
-  openResult();
-}
-
-function showSituationsResult(){
-  if(Object.keys(selectedSituationAnswers).length<situationsData.length){alert("Vyber odpověď ve všech situacích.");return;}
-  const scores=calcSituationScores();
-  const sorted=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
-  const main=sorted[0][0], second=sorted[1][0];
-  const total=Object.values(scores).reduce((a,b)=>a+b,0)||1;
-  const p={}; Object.keys(scores).forEach(k=>p[k]=Math.round((scores[k]/total)*100));
-  const mainTexts={chol:"Reaguješ rychle, rozhodně a přímo. Když je potřeba jednat, máš tendenci převzít kontrolu a jít vpřed.",sang:"Do situací přinášíš energii, otevřenost a lehkost. Často reaguješ spontánně a společensky.",phleg:"Působíš klidně, vyrovnaně a stabilně. Tvoje síla je v rozvaze a trpělivosti.",mel:"Reaguješ citlivě, hloubavě a vnímavě. Tvoje síla je v hloubce prožívání a pečlivosti."};
-  const combos={"chol-sang":"Působíš energicky, akčně a zároveň velmi otevřeně.","chol-phleg":"Na první pohled působíš rozhodně, ale uvnitř si umíš uchovat větší klid.","chol-mel":"Máš silnou vůli a potřebu jednat, ale zároveň si věci bereš víc k srdci.","sang-phleg":"Působíš otevřeně a přístupně, ale zároveň bez zbytečného dramatu.","sang-mel":"Na venek můžeš působit lehce a společensky, ale uvnitř jsi citlivější.","phleg-mel":"Působíš klidně, opatrně a vnímavě."};
-  const mix=combos[`${main}-${second}`]||combos[`${second}-${main}`]||"Tvůj temperament ukazuje kombinaci více silných reakcí.";
-  document.getElementById("resultTitle").textContent="🔮 Tvůj klasický temperament 🔮";
-  document.getElementById("mainRoleText").textContent=tempProfiles[main].name;
-  document.getElementById("mainRoleSub").textContent="výsledek ze situací";
-  document.getElementById("resultComment").textContent=mainTexts[main]+" "+mix;
-  document.getElementById("magicWheel").style.background=buildConicGradient(p,[["chol",tempProfiles.chol.color],["sang",tempProfiles.sang.color],["phleg",tempProfiles.phleg.color],["mel",tempProfiles.mel.color]]);
-  renderStats([["Cholerik",p.chol,"#c56f59"],["Sangvinik",p.sang,"#d7a64e"],["Flegmatik",p.phleg,"#7faec0"],["Melancholik",p.mel,"#9283ac"]]);
-  const compareBox=document.getElementById("compareBox");
-  if(selectedTraits.size>=5){const traitScores=calcTraitsScores();const traitMain=Object.entries(traitScores).sort((a,b)=>b[1]-a[1])[0][0];compareBox.style.display="block";compareBox.innerHTML=`<b>Srovnání obou režimů:</b><br>Rysy povahy: <b>${traitProfiles[traitMain].name}</b><br>Situace: <b>${tempProfiles[main].name}</b><br><br>Tento rozdíl může ukazovat, že se vidíš trochu jinak, než jak reaguješ v konkrétních situacích.`;} else {compareBox.style.display="none";}
-  openResult();
-}
-
-function resetCurrentMode(){
-  if(mode==="traits"){selectedTraits.clear();document.querySelectorAll(".trait-btn").forEach(btn=>btn.classList.remove("selected"));}
-  else {Object.keys(selectedSituationAnswers).forEach(k=>delete selectedSituationAnswers[k]);document.querySelectorAll(".situation-options button").forEach(btn=>btn.classList.remove("selected"));}
-  closeResult();
-}
-
-const modeToggle=document.getElementById("modeToggle");
-const labelTraits=document.getElementById("labelTraits");
-const labelSituations=document.getElementById("labelSituations");
-const traitsPanel=document.getElementById("traitsPanel");
-const situationsPanel=document.getElementById("situationsPanel");
-const mainSectionTitle=document.getElementById("mainSectionTitle");
-
-modeToggle.addEventListener("change",()=>{
-  if(modeToggle.checked){
-    mode="situations";
-    labelTraits.classList.remove("active");
-    labelSituations.classList.add("active");
-    traitsPanel.classList.remove("active");
-    situationsPanel.classList.add("active");
-    mainSectionTitle.textContent="Reaguj na situace a odhal svůj klasický temperament";
-  }else{
-    mode="traits";
-    labelSituations.classList.remove("active");
-    labelTraits.classList.add("active");
-    situationsPanel.classList.remove("active");
-    traitsPanel.classList.add("active");
-    mainSectionTitle.textContent="Vyber rysy, které tě nejvíc vystihují";
+  for(let i=0;i<55;i++){
+    const s=document.createElement("div");
+    s.className="sparkle";
+    s.style.left=Math.random()*100+"vw";
+    s.style.top=Math.random()*100+"vh";
+    s.style.animationDelay=(Math.random()*4.5)+"s";
+    s.style.opacity=.1+Math.random()*.9;
+    document.getElementById("sparkles").appendChild(s);
   }
-});
-  <script>
-function sendHeight() {
-  const height = document.body.scrollHeight;
-  window.parent.postMessage({ type: "resize", height }, "*");
-}
 
-// po načtení
-window.addEventListener("load", sendHeight);
+  function createSvg(kind){
+    const svg = {
+      hourglass:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#d8c7ad"/><path d="M90 36 h80 M90 124 h80" stroke="#b8925f" stroke-width="6"/><path d="M102 40 q0 28 28 40 q-28 12-28 40 M158 40 q0 28-28 40 q28 12 28 40" stroke="#fff8ef" stroke-width="4" fill="none"/><path d="M130 78 l14 18 h-28z" fill="#d9b261"/></svg>',
+      group:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#dfd2bc"/><circle cx="85" cy="56" r="16" fill="#fff8ef"/><circle cx="130" cy="48" r="18" fill="#fff8ef"/><circle cx="175" cy="56" r="16" fill="#fff8ef"/><path d="M68 102 q17 -16 34 0 M111 102 q19 -18 38 0 M158 102 q17 -16 34 0" stroke="#b8925f" stroke-width="6" fill="none"/></svg>',
+      speech:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#e4d8c5"/><rect x="40" y="40" width="84" height="52" rx="12" fill="#fff8ef"/><rect x="136" y="52" width="84" height="52" rx="12" fill="#d9c0a0"/><path d="M78 92 l-8 14 l18 -10" fill="#fff8ef"/><path d="M182 104 l10 12 l-2 -14" fill="#d9c0a0"/></svg>',
+      rocket:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#eadfce"/><path d="M140 42 q30 16 32 54 q-38 8-70-24 q6-24 38-30z" fill="#c7a6b8"/><circle cx="150" cy="68" r="8" fill="#fff8ef"/><path d="M107 96 l-18 26 l30-10 M160 107 l22 18 l-8-28" fill="#d9b261"/></svg>',
+      conflict:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#ead9cf"/><circle cx="86" cy="62" r="18" fill="#fff8ef"/><circle cx="174" cy="62" r="18" fill="#fff8ef"/><path d="M104 82 l34-18 M156 82 l-34-18" stroke="#c97b63" stroke-width="6"/><path d="M124 96 l12 20 l10-18" stroke="#d9b261" stroke-width="5" fill="none"/></svg>',
+      party:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#efe4d2"/><circle cx="72" cy="48" r="8" fill="#c97b63"/><circle cx="118" cy="36" r="8" fill="#d9b261"/><circle cx="162" cy="50" r="8" fill="#b9c7a0"/><circle cx="198" cy="38" r="8" fill="#a8b3c9"/><path d="M70 116 q24 -42 48 0 q20 -46 48 0 q26 -36 50 0" stroke="#fff8ef" stroke-width="8" fill="none"/></svg>',
+      exam:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#e8ddcb"/><rect x="60" y="34" width="132" height="92" rx="10" fill="#fff8ef"/><path d="M84 60 H168 M84 76 H164 M84 92 H150" stroke="#9b866d" stroke-width="3"/><path d="M176 42 l18 18" stroke="#b8925f" stroke-width="6"/></svg>',
+      idea:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#efe4d7"/><circle cx="130" cy="64" r="30" fill="#d9b261"/><path d="M118 96 h24 v18 h-24z" fill="#fff8ef"/><path d="M92 34 l-12-12 M168 34 l12-12 M76 68 H58 M202 68 H184" stroke="#d9b261" stroke-width="4"/></svg>',
+      ignore:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#eadfcf"/><circle cx="84" cy="62" r="18" fill="#fff8ef"/><circle cx="176" cy="62" r="18" fill="#fff8ef" opacity=".45"/><path d="M66 106 q18 -14 36 0" stroke="#b8925f" stroke-width="6" fill="none"/><path d="M158 106 q18 -14 36 0" stroke="#b0a28f" stroke-width="6" fill="none"/></svg>',
+      storm:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#e8dece"/><path d="M74 76 q8-24 32-24 q10-18 34-14 q20 2 28 22 q24 0 24 24 q0 24-26 24 H92 q-26 0-26-26 q0-10 8-16z" fill="#a8b3c9"/><path d="M136 84 l-18 26 h14 l-8 22 l24-30 h-12 l10-18z" fill="#d9b261"/></svg>',
+      trophy:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#e8dcc9"/><path d="M98 40 h64 v22 q0 22-32 30 q-32-8-32-30z" fill="#d9b261"/><path d="M98 46 h-18 q0 24 22 28 M162 46 h18 q0 24-22 28" stroke="#fff8ef" stroke-width="5" fill="none"/><rect x="120" y="92" width="20" height="20" fill="#fff8ef"/><rect x="104" y="112" width="52" height="10" rx="4" fill="#b8925f"/></svg>',
+      alone:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="160" rx="16" fill="#eadfcf"/><circle cx="130" cy="70" r="18" fill="#fff8ef"/><path d="M110 118 q20 -26 40 0" stroke="#b8925f" stroke-width="8" fill="none"/><circle cx="200" cy="34" r="12" fill="#a8b3c9"/></svg>'
+    };
+    return svg[kind] || svg.idea;
+  }
 
-// při změně (např. přepnutí režimu)
-window.addEventListener("resize", sendHeight);
+  const traitsGrid = document.getElementById("traitsGrid");
+  traitsData.forEach((item,index)=>{
+    const btn=document.createElement("button");
+    btn.className="trait-btn";
+    btn.textContent=item.text;
+    btn.onclick=()=>{
+      if(selectedTraits.has(index)){
+        selectedTraits.delete(index);
+        btn.classList.remove("selected");
+      } else {
+        selectedTraits.add(index);
+        btn.classList.add("selected");
+      }
+    };
+    traitsGrid.appendChild(btn);
+  });
 
-// malý delay pro animace
-setInterval(sendHeight, 500);
+  const situationsGrid = document.getElementById("situationsGrid");
+  situationsData.forEach((item,cardIndex)=>{
+    const card=document.createElement("article");
+    card.className="card";
+    const optionsHtml=item.options.map((opt,i)=>
+      `<button onclick="selectSituationAnswer(this, ${cardIndex}, ${i})">${opt.text}</button>`
+    ).join("");
+
+    card.innerHTML=`
+      <div class="card-head">
+        <div class="head-text">
+          <div class="eyebrow">
+            <span class="icon-chip">${item.icon}</span>
+            <span>Situace ${cardIndex+1}</span>
+          </div>
+          <h3>${item.title}</h3>
+          <div class="question">👉 ${item.question}</div>
+          <div class="situation-options">${optionsHtml}</div>
+        </div>
+        <div class="art">${createSvg(item.art)}</div>
+      </div>
+    `;
+    situationsGrid.appendChild(card);
+  });
+
+  function selectSituationAnswer(btn,cardIndex,optionIndex){
+    selectedSituationAnswers[cardIndex]=optionIndex;
+    btn.closest(".situation-options").querySelectorAll("button").forEach(b=>b.classList.remove("selected"));
+    btn.classList.add("selected");
+    sendHeight();
+  }
+
+  function calcTraitsScores(){
+    const scores={leader:0,social:0,calm:0,deep:0,creator:0,steady:0};
+    selectedTraits.forEach(i=>{
+      Object.entries(traitsData[i].score).forEach(([k,v])=>scores[k]+=v);
+    });
+    return scores;
+  }
+
+  function calcSituationScores(){
+    const scores={chol:0,sang:0,phleg:0,mel:0};
+    Object.entries(selectedSituationAnswers).forEach(([cardIndex,optIndex])=>{
+      Object.entries(situationsData[cardIndex].options[optIndex].score).forEach(([k,v])=>scores[k]+=v);
+    });
+    return scores;
+  }
+
+  function buildConicGradient(percentScores,order){
+    let current=0;
+    const parts=[];
+    order.forEach(([key,color],idx)=>{
+      const deg=Math.round((percentScores[key]/100)*360);
+      const end=idx===order.length-1?360:current+deg;
+      parts.push(`${color} ${current}deg ${end}deg`);
+      current=end;
+    });
+    return `conic-gradient(${parts.join(", ")})`;
+  }
+
+  function renderStats(items){
+    const statsBox=document.getElementById("statsBox");
+    statsBox.innerHTML=items.map(([label,pct,color],i)=>`
+      <div class="stat">
+        <div class="stat-label"><span>${label}</span><span>${pct} %</span></div>
+        <div class="bar"><div class="bar-fill" id="bar${i}" style="background:${color};color:${color};"></div></div>
+      </div>
+    `).join("");
+
+    setTimeout(()=>{
+      items.forEach(([,pct],i)=>{
+        const bar=document.getElementById(`bar${i}`);
+        if(bar) bar.style.width=pct+"%";
+      });
+      sendHeight();
+    },70);
+  }
+
+  function openResult(){
+    document.getElementById("resultOverlay").classList.add("show");
+    sendHeight();
+  }
+
+  function closeResult(){
+    document.getElementById("resultOverlay").classList.remove("show");
+    sendHeight();
+  }
+
+  function showTraitsResult(){
+    if(selectedTraits.size<5){
+      alert("Vyber alespoň 5 rysů.");
+      return;
+    }
+
+    const scores=calcTraitsScores();
+    const sorted=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
+    const main=sorted[0][0];
+    const second=sorted[1][0];
+    const total=Object.values(scores).reduce((a,b)=>a+b,0)||1;
+    const p={};
+    Object.keys(scores).forEach(k=>p[k]=Math.round((scores[k]/total)*100));
+
+    const mainTexts={
+      leader:"Působíš jako člověk, který chce věci posouvat dopředu. Umíš se rozhodnout, převzít iniciativu a nést odpovědnost.",
+      social:"Tvoje síla je v kontaktu s lidmi, energii a otevřenosti. Umíš vytvářet příjemnou atmosféru a povzbuzovat ostatní.",
+      calm:"Působíš vyrovnaně, trpělivě a laskavě. Nehledáš zbytečné drama, ale spíš stabilitu a dobré vztahy.",
+      deep:"Máš silné vnitřní prožívání a vnímáš věci do hloubky. Často si všimneš detailů, které ostatním uniknou.",
+      creator:"Silnou stránkou tvé osobnosti je nápaditost, originalita a chuť objevovat nové možnosti.",
+      steady:"Tvoje síla je ve spolehlivosti, zodpovědnosti a schopnosti vydržet."
+    };
+
+    const combos={
+      "leader-social":"Máš energii člověka, který umí nejen vést, ale i strhnout ostatní.",
+      "leader-steady":"Tvoje síla je v kombinaci rozhodnosti a vytrvalosti.",
+      "social-creator":"Působíš živě, otevřeně a zároveň velmi nápaditě.",
+      "social-calm":"Tvoje otevřenost je vyvážená klidem a laskavostí.",
+      "calm-deep":"Máš v sobě klid, citlivost a schopnost vnímat jemné nuance.",
+      "deep-creator":"Tvoje citlivost a představivost jdou ruku v ruce.",
+      "creator-steady":"Nápady ti nechybí, ale zároveň máš i schopnost je rozvíjet.",
+      "steady-calm":"Působíš stabilně, klidně a spolehlivě."
+    };
+
+    const mix=combos[`${main}-${second}`]||combos[`${second}-${main}`]||"Tvůj profil je vyvážený a ukazuje kombinaci více silných stránek.";
+
+    document.getElementById("resultTitle").textContent="✨ Tvůj profil osobnosti ✨";
+    document.getElementById("mainRoleText").textContent=traitProfiles[main].name;
+    document.getElementById("mainRoleSub").textContent="výsledek z rysů povahy";
+    document.getElementById("resultComment").textContent=mainTexts[main]+" "+mix;
+    document.getElementById("compareBox").style.display="none";
+
+    document.getElementById("magicWheel").style.background=buildConicGradient(p,[
+      ["leader",traitProfiles.leader.color],
+      ["social",traitProfiles.social.color],
+      ["calm",traitProfiles.calm.color],
+      ["deep",traitProfiles.deep.color],
+      ["creator",traitProfiles.creator.color],
+      ["steady",traitProfiles.steady.color]
+    ]);
+
+    renderStats([
+      ["Vůdcovství",p.leader,"#c97d63"],
+      ["Společenskost",p.social,"#d0a652"],
+      ["Klid",p.calm,"#9cb98d"],
+      ["Citlivost",p.deep,"#8ea1be"],
+      ["Kreativita",p.creator,"#b892b6"],
+      ["Vytrvalost",p.steady,"#88b8bf"]
+    ]);
+
+    openResult();
+  }
+
+  function showSituationsResult(){
+    if(Object.keys(selectedSituationAnswers).length < situationsData.length){
+      alert("Vyber odpověď ve všech situacích.");
+      return;
+    }
+
+    const scores=calcSituationScores();
+    const sorted=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
+    const main=sorted[0][0];
+    const second=sorted[1][0];
+    const total=Object.values(scores).reduce((a,b)=>a+b,0)||1;
+    const p={};
+    Object.keys(scores).forEach(k=>p[k]=Math.round((scores[k]/total)*100));
+
+    const mainTexts={
+      chol:"Reaguješ rychle, rozhodně a přímo. Když je potřeba jednat, máš tendenci převzít kontrolu a jít vpřed.",
+      sang:"Do situací přinášíš energii, otevřenost a lehkost. Často reaguješ spontánně a společensky.",
+      phleg:"Působíš klidně, vyrovnaně a stabilně. Tvoje síla je v rozvaze a trpělivosti.",
+      mel:"Reaguješ citlivě, hloubavě a vnímavě. Tvoje síla je v hloubce prožívání a pečlivosti."
+    };
+
+    const combos={
+      "chol-sang":"Působíš energicky, akčně a zároveň velmi otevřeně.",
+      "chol-phleg":"Na první pohled působíš rozhodně, ale uvnitř si umíš uchovat větší klid.",
+      "chol-mel":"Máš silnou vůli a potřebu jednat, ale zároveň si věci bereš víc k srdci.",
+      "sang-phleg":"Působíš otevřeně a přístupně, ale zároveň bez zbytečného dramatu.",
+      "sang-mel":"Na venek můžeš působit lehce a společensky, ale uvnitř jsi citlivější.",
+      "phleg-mel":"Působíš klidně, opatrně a vnímavě."
+    };
+
+    const mix=combos[`${main}-${second}`]||combos[`${second}-${main}`]||"Tvůj temperament ukazuje kombinaci více silných reakcí.";
+
+    document.getElementById("resultTitle").textContent="🔮 Tvůj klasický temperament 🔮";
+    document.getElementById("mainRoleText").textContent=tempProfiles[main].name;
+    document.getElementById("mainRoleSub").textContent="výsledek ze situací";
+    document.getElementById("resultComment").textContent=mainTexts[main]+" "+mix;
+
+    document.getElementById("magicWheel").style.background=buildConicGradient(p,[
+      ["chol",tempProfiles.chol.color],
+      ["sang",tempProfiles.sang.color],
+      ["phleg",tempProfiles.phleg.color],
+      ["mel",tempProfiles.mel.color]
+    ]);
+
+    renderStats([
+      ["Cholerik",p.chol,"#c56f59"],
+      ["Sangvinik",p.sang,"#d7a64e"],
+      ["Flegmatik",p.phleg,"#7faec0"],
+      ["Melancholik",p.mel,"#9283ac"]
+    ]);
+
+    const compareBox=document.getElementById("compareBox");
+    if(selectedTraits.size>=5){
+      const traitScores=calcTraitsScores();
+      const traitMain=Object.entries(traitScores).sort((a,b)=>b[1]-a[1])[0][0];
+      compareBox.style.display="block";
+      compareBox.innerHTML=`<b>Srovnání obou režimů:</b><br>Rysy povahy: <b>${traitProfiles[traitMain].name}</b><br>Situace: <b>${tempProfiles[main].name}</b><br><br>Tento rozdíl může ukazovat, že se vidíš trochu jinak, než jak reaguješ v konkrétních situacích.`;
+    } else {
+      compareBox.style.display="none";
+    }
+
+    openResult();
+  }
+
+  function resetCurrentMode(){
+    if(mode==="traits"){
+      selectedTraits.clear();
+      document.querySelectorAll(".trait-btn").forEach(btn=>btn.classList.remove("selected"));
+    } else {
+      Object.keys(selectedSituationAnswers).forEach(k=>delete selectedSituationAnswers[k]);
+      document.querySelectorAll(".situation-options button").forEach(btn=>btn.classList.remove("selected"));
+    }
+    closeResult();
+  }
+
+  const modeToggle=document.getElementById("modeToggle");
+  const labelTraits=document.getElementById("labelTraits");
+  const labelSituations=document.getElementById("labelSituations");
+  const traitsPanel=document.getElementById("traitsPanel");
+  const situationsPanel=document.getElementById("situationsPanel");
+  const mainSectionTitle=document.getElementById("mainSectionTitle");
+
+  modeToggle.addEventListener("change",()=>{
+    if(modeToggle.checked){
+      mode="situations";
+      labelTraits.classList.remove("active");
+      labelSituations.classList.add("active");
+      traitsPanel.classList.remove("active");
+      situationsPanel.classList.add("active");
+      mainSectionTitle.textContent="Reaguj na situace a odhal svůj klasický temperament";
+    } else {
+      mode="traits";
+      labelSituations.classList.remove("active");
+      labelTraits.classList.add("active");
+      situationsPanel.classList.remove("active");
+      traitsPanel.classList.add("active");
+      mainSectionTitle.textContent="Vyber rysy, které tě nejvíc vystihují";
+    }
+    sendHeight();
+  });
+
+  function sendHeight(){
+    const height = document.documentElement.scrollHeight;
+    window.parent.postMessage({ type:"resize", height:height }, "*");
+  }
+
+  window.addEventListener("load", sendHeight);
+  window.addEventListener("resize", sendHeight);
+  setTimeout(sendHeight, 300);
+  setTimeout(sendHeight, 800);
+  setTimeout(sendHeight, 1500);
 </script>
-</script>
+
 </body>
 </html>
