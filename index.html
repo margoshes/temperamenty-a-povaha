@@ -14,11 +14,15 @@
   body{min-height:100vh;font-family:Georgia,"Times New Roman",serif;color:var(--text);background:radial-gradient(circle at 50% 0%, rgba(190,147,87,.12), transparent 24%),linear-gradient(180deg,#f5ede1,#ecdecb 48%,#e7d5bc);overflow-x:hidden}
   .sparkles{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
   .sparkle{position:absolute;width:4px;height:4px;border-radius:50%;background:#f4e4bb;box-shadow:0 0 12px rgba(244,228,187,.9);animation:twinkle 4.6s ease-in-out infinite}
-  .header{position:relative;height:360px;background:linear-gradient(rgba(90,72,45,.14),rgba(90,72,45,.32)),url("https://margoshes.github.io/temperamenty-a-povaha/header.png") center/cover no-repeat;box-shadow:0 20px 52px rgba(0,0,0,.18)}
+  .header{ position: relative;  z-index: 2; background: url("header.png") center/cover no-repeat;
+}
+
+header:before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.45); /* ztmavení */ backdrop-filter: blur(2px);   /* jemná mlha */
+};box-shadow:0 20px 52px rgba(0,0,0,.18)}
   .header:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 22%, rgba(255,249,231,.16), transparent 18%),linear-gradient(to bottom, rgba(255,255,255,.02), rgba(79,59,40,.12))}
   .wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:22px 18px 48px}
   .hero{margin-top:-58px;text-align:center}
-  h1{margin:0;color:var(--gold);font-size:clamp(2rem,4vw,3.45rem);  text-shadow: 0 2px 6px rgba(0,0,0,0.25), 0 0 12px rgba(190,147,87,0.4); animation: glowPulse 3s ease-in-out infinite;}
+  h1{color: #f1d6a3;text-shadow: 0 3px 10px rgba(0,0,0,0.6), 0 0 20px rgba(190,147,87,0.7); animation: glowPulse 3s ease-in-out infinite; margin:0;color:var(--gold);font-size:clamp(2rem,4vw,3.45rem);  text-shadow: 0 2px 6px rgba(0,0,0,0.25), 0 0 12px rgba(190,147,87,0.4); animation: glowPulse 3s ease-in-out infinite;}
   .subtitle{margin:14px auto 0;max-width:860px;padding:14px 18px;background:linear-gradient(180deg, rgba(252,247,240,.97), rgba(246,237,224,.98));border:1px solid rgba(190,147,87,.22);border-radius:999px;color:#614d38;box-shadow:0 10px 24px rgba(101,73,37,.08)}
   .mode-switch-wrap{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px}
   .mode-label{color:#8d755d;font-weight:700;opacity:.7;transition:.25s ease}
