@@ -16,11 +16,40 @@
   .sparkle{position:absolute;width:4px;height:4px;border-radius:50%;background:#f4e4bb;box-shadow:0 0 12px rgba(244,228,187,.9);animation:twinkle 4.6s ease-in-out infinite}
 .header {
   position: relative;
-  z-index: 2;
-  background: url("header.png") center/cover no-repeat;
+  width: 100%;
+  overflow: hidden;
   box-shadow: 0 20px 52px rgba(0,0,0,.18);
-  padding-top: 160px;
-  padding-bottom: 40px;
+}
+
+.header-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.header-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.18);
+}
+
+.header-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.header h1 {
+  margin: 0;
+  color: #f1d6a3;
+  text-shadow:
+    0 2px 8px rgba(0,0,0,0.55),
+    0 0 16px rgba(190,147,87,0.45);
+  animation: glowPulse 3s ease-in-out infinite;
 }
 
 /* overlay */
@@ -115,7 +144,25 @@ h1 {
   .compare-box{margin-top:18px;padding:14px 16px;border-radius:16px;background:rgba(255,248,238,.88);border:1px solid rgba(190,147,87,.18);color:#6b5540}
   .result-actions{margin-top:22px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
   @keyframes twinkle{0%,100%{opacity:.12;transform:scale(.7)}50%{opacity:1;transform:scale(1.45)}}
-  @keyframes fadeIn{from{opacity:0}to{opacity:1}} @keyframes fadeSoft{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes fadeSoft{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes glowPulse {
+  0% {
+    text-shadow:
+      0 2px 8px rgba(0,0,0,0.55),
+      0 0 10px rgba(190,147,87,0.25);
+  }
+  50% {
+    text-shadow:
+      0 2px 12px rgba(0,0,0,0.65),
+      0 0 22px rgba(190,147,87,0.65);
+  }
+  100% {
+    text-shadow:
+      0 2px 8px rgba(0,0,0,0.55),
+      0 0 10px rgba(190,147,87,0.25);
+  }
+}
   @media (max-width:980px){.traits-grid{grid-template-columns:repeat(3,1fr)}.situations-grid{grid-template-columns:1fr}.temper-grid{grid-template-columns:repeat(2,1fr)}}
   @media (max-width:700px){.traits-grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:1fr}.magic-wheel{width:220px;height:220px}}
   @media (max-width:560px){.traits-grid,.temper-grid{grid-template-columns:1fr}.card-head{grid-template-columns:1fr}.art{border-left:none;border-top:1px solid rgba(190,147,87,.12);min-height:170px}}
@@ -139,7 +186,13 @@ h1 {
 </style>
 </head>
 <body>
-<div class="header"></div>
+<header class="header">
+  <img src="header.png" alt="Temperamenty" class="header-img">
+  <div class="header-overlay"></div>
+  <div class="header-content">
+    <h1>🧠 Hra na temperamenty a povahu</h1>
+  </div>
+</header>
 <div class="sparkles" id="sparkles"></div>
 
 <div class="wrap">
