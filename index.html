@@ -381,6 +381,21 @@ modeToggle.addEventListener("change",()=>{
     mainSectionTitle.textContent="Vyber rysy, které tě nejvíc vystihují";
   }
 });
+  <script>
+function sendHeight() {
+  const height = document.body.scrollHeight;
+  window.parent.postMessage({ type: "resize", height }, "*");
+}
+
+// po načtení
+window.addEventListener("load", sendHeight);
+
+// při změně (např. přepnutí režimu)
+window.addEventListener("resize", sendHeight);
+
+// malý delay pro animace
+setInterval(sendHeight, 500);
+</script>
 </script>
 </body>
 </html>
